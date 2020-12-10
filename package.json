@@ -1,18 +1,8 @@
 {
-  "name": "protobuf",
+  "name": "pb",
   "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/kekhuay/nextershop-pb-nodejs.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kekhuay/nextershop-pb-nodejs/issues"
-  },
-  "homepage": "https://github.com/kekhuay/nextershop-pb-nodejs#readme"
+  "repository": "git@github.com:SCGWEDOtech/nexter-p2-nextershop-pb-nodejs.git",
+  "author": "Natthaphon Phanit <kekhuay@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true
 }
