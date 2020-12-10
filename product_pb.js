@@ -102,7 +102,7 @@ proto.product.Product.toObject = function(includeInstance, msg) {
     packInBox: jspb.Message.getFieldWithDefault(msg, 32, 0),
     tileSquare: jspb.Message.getFieldWithDefault(msg, 33, ""),
     variantImage: jspb.Message.getFieldWithDefault(msg, 34, ""),
-    productImage: jspb.Message.getFieldWithDefault(msg, 35, "")
+    productImage: jspb.Message.getFieldWithDefault(msg, 36, "")
   };
 
   if (includeInstance) {
@@ -275,7 +275,7 @@ proto.product.Product.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setVariantImage(value);
       break;
-    case 35:
+    case 36:
       var value = /** @type {string} */ (reader.readString());
       msg.setProductImage(value);
       break;
@@ -549,7 +549,7 @@ proto.product.Product.serializeBinaryToWriter = function(message, writer) {
   f = message.getProductImage();
   if (f.length > 0) {
     writer.writeString(
-      35,
+      36,
       f
     );
   }
@@ -1169,11 +1169,11 @@ proto.product.Product.prototype.setVariantImage = function(value) {
 
 
 /**
- * optional string product_image = 35;
+ * optional string product_image = 36;
  * @return {string}
  */
 proto.product.Product.prototype.getProductImage = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 35, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 36, ""));
 };
 
 
@@ -1182,7 +1182,7 @@ proto.product.Product.prototype.getProductImage = function() {
  * @return {!proto.product.Product} returns this
  */
 proto.product.Product.prototype.setProductImage = function(value) {
-  return jspb.Message.setProto3StringField(this, 35, value);
+  return jspb.Message.setProto3StringField(this, 36, value);
 };
 
 
