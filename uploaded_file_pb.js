@@ -319,7 +319,7 @@ proto.uploadedfile.v1.Response.prototype.toObject = function(opt_includeInstance
  */
 proto.uploadedfile.v1.Response.toObject = function(includeInstance, msg) {
   var f, obj = {
-    uploadedfilesList: jspb.Message.toObjectList(msg.getUploadedfilesList(),
+    uploadedFilesList: jspb.Message.toObjectList(msg.getUploadedFilesList(),
     proto.uploadedfile.v1.UploadedFile.toObject, includeInstance)
   };
 
@@ -360,7 +360,7 @@ proto.uploadedfile.v1.Response.deserializeBinaryFromReader = function(msg, reade
     case 1:
       var value = new proto.uploadedfile.v1.UploadedFile;
       reader.readMessage(value,proto.uploadedfile.v1.UploadedFile.deserializeBinaryFromReader);
-      msg.addUploadedfiles(value);
+      msg.addUploadedFiles(value);
       break;
     default:
       reader.skipField();
@@ -391,7 +391,7 @@ proto.uploadedfile.v1.Response.prototype.serializeBinary = function() {
  */
 proto.uploadedfile.v1.Response.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getUploadedfilesList();
+  f = message.getUploadedFilesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -403,10 +403,10 @@ proto.uploadedfile.v1.Response.serializeBinaryToWriter = function(message, write
 
 
 /**
- * repeated UploadedFile uploadedFiles = 1;
+ * repeated UploadedFile uploaded_files = 1;
  * @return {!Array<!proto.uploadedfile.v1.UploadedFile>}
  */
-proto.uploadedfile.v1.Response.prototype.getUploadedfilesList = function() {
+proto.uploadedfile.v1.Response.prototype.getUploadedFilesList = function() {
   return /** @type{!Array<!proto.uploadedfile.v1.UploadedFile>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.uploadedfile.v1.UploadedFile, 1));
 };
@@ -416,7 +416,7 @@ proto.uploadedfile.v1.Response.prototype.getUploadedfilesList = function() {
  * @param {!Array<!proto.uploadedfile.v1.UploadedFile>} value
  * @return {!proto.uploadedfile.v1.Response} returns this
 */
-proto.uploadedfile.v1.Response.prototype.setUploadedfilesList = function(value) {
+proto.uploadedfile.v1.Response.prototype.setUploadedFilesList = function(value) {
   return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
@@ -426,7 +426,7 @@ proto.uploadedfile.v1.Response.prototype.setUploadedfilesList = function(value) 
  * @param {number=} opt_index
  * @return {!proto.uploadedfile.v1.UploadedFile}
  */
-proto.uploadedfile.v1.Response.prototype.addUploadedfiles = function(opt_value, opt_index) {
+proto.uploadedfile.v1.Response.prototype.addUploadedFiles = function(opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.uploadedfile.v1.UploadedFile, opt_index);
 };
 
@@ -435,8 +435,8 @@ proto.uploadedfile.v1.Response.prototype.addUploadedfiles = function(opt_value, 
  * Clears the list making it empty but non-null.
  * @return {!proto.uploadedfile.v1.Response} returns this
  */
-proto.uploadedfile.v1.Response.prototype.clearUploadedfilesList = function() {
-  return this.setUploadedfilesList([]);
+proto.uploadedfile.v1.Response.prototype.clearUploadedFilesList = function() {
+  return this.setUploadedFilesList([]);
 };
 
 
