@@ -16,15 +16,15 @@ function deserialize_google_protobuf_Empty(buffer_arg) {
   return google_protobuf_empty_pb.Empty.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_uploadedfile_v1_UploadedFile(arg) {
-  if (!(arg instanceof uploaded_file_pb.UploadedFile)) {
-    throw new Error('Expected argument of type uploadedfile.v1.UploadedFile');
+function serialize_uploadedfile_v1_Response(arg) {
+  if (!(arg instanceof uploaded_file_pb.Response)) {
+    throw new Error('Expected argument of type uploadedfile.v1.Response');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_uploadedfile_v1_UploadedFile(buffer_arg) {
-  return uploaded_file_pb.UploadedFile.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_uploadedfile_v1_Response(buffer_arg) {
+  return uploaded_file_pb.Response.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
@@ -34,11 +34,11 @@ var UploadedFileServiceService = exports.UploadedFileServiceService = {
     requestStream: false,
     responseStream: false,
     requestType: google_protobuf_empty_pb.Empty,
-    responseType: uploaded_file_pb.UploadedFile,
+    responseType: uploaded_file_pb.Response,
     requestSerialize: serialize_google_protobuf_Empty,
     requestDeserialize: deserialize_google_protobuf_Empty,
-    responseSerialize: serialize_uploadedfile_v1_UploadedFile,
-    responseDeserialize: deserialize_uploadedfile_v1_UploadedFile,
+    responseSerialize: serialize_uploadedfile_v1_Response,
+    responseDeserialize: deserialize_uploadedfile_v1_Response,
   },
 };
 
