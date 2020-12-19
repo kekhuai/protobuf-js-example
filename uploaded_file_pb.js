@@ -16,6 +16,8 @@ var global = Function('return this')();
 
 var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 goog.object.extend(proto, google_protobuf_empty_pb);
+var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
+goog.object.extend(proto, google_protobuf_timestamp_pb);
 goog.exportSymbol('proto.uploadedfile.v1.Response', null, global);
 goog.exportSymbol('proto.uploadedfile.v1.UploadedFile', null, global);
 /**
@@ -94,8 +96,8 @@ proto.uploadedfile.v1.UploadedFile.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     source: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    createdAt: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    updatedAt: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -141,11 +143,13 @@ proto.uploadedfile.v1.UploadedFile.deserializeBinaryFromReader = function(msg, r
       msg.setSource(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = new google_protobuf_timestamp_pb.Timestamp;
+      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setCreatedAt(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = new google_protobuf_timestamp_pb.Timestamp;
+      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setUpdatedAt(value);
       break;
     default:
@@ -192,17 +196,19 @@ proto.uploadedfile.v1.UploadedFile.serializeBinaryToWriter = function(message, w
     );
   }
   f = message.getCreatedAt();
-  if (f !== 0) {
-    writer.writeUint64(
+  if (f != null) {
+    writer.writeMessage(
       3,
-      f
+      f,
+      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
   f = message.getUpdatedAt();
-  if (f !== 0) {
-    writer.writeUint64(
+  if (f != null) {
+    writer.writeMessage(
       4,
-      f
+      f,
+      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
 };
@@ -245,38 +251,76 @@ proto.uploadedfile.v1.UploadedFile.prototype.setSource = function(value) {
 
 
 /**
- * optional uint64 created_at = 3;
- * @return {number}
+ * optional google.protobuf.Timestamp created_at = 3;
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.uploadedfile.v1.UploadedFile.prototype.getCreatedAt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
 };
 
 
 /**
- * @param {number} value
+ * @param {?proto.google.protobuf.Timestamp|undefined} value
+ * @return {!proto.uploadedfile.v1.UploadedFile} returns this
+*/
+proto.uploadedfile.v1.UploadedFile.prototype.setCreatedAt = function(value) {
+  return jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
  * @return {!proto.uploadedfile.v1.UploadedFile} returns this
  */
-proto.uploadedfile.v1.UploadedFile.prototype.setCreatedAt = function(value) {
-  return jspb.Message.setProto3IntField(this, 3, value);
+proto.uploadedfile.v1.UploadedFile.prototype.clearCreatedAt = function() {
+  return this.setCreatedAt(undefined);
 };
 
 
 /**
- * optional uint64 updated_at = 4;
- * @return {number}
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.uploadedfile.v1.UploadedFile.prototype.hasCreatedAt = function() {
+  return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional google.protobuf.Timestamp updated_at = 4;
+ * @return {?proto.google.protobuf.Timestamp}
  */
 proto.uploadedfile.v1.UploadedFile.prototype.getUpdatedAt = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 4));
 };
 
 
 /**
- * @param {number} value
+ * @param {?proto.google.protobuf.Timestamp|undefined} value
+ * @return {!proto.uploadedfile.v1.UploadedFile} returns this
+*/
+proto.uploadedfile.v1.UploadedFile.prototype.setUpdatedAt = function(value) {
+  return jspb.Message.setWrapperField(this, 4, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
  * @return {!proto.uploadedfile.v1.UploadedFile} returns this
  */
-proto.uploadedfile.v1.UploadedFile.prototype.setUpdatedAt = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+proto.uploadedfile.v1.UploadedFile.prototype.clearUpdatedAt = function() {
+  return this.setUpdatedAt(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.uploadedfile.v1.UploadedFile.prototype.hasUpdatedAt = function() {
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
