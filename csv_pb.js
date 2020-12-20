@@ -282,7 +282,8 @@ proto.csv.v1.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     payloadList: jspb.Message.toObjectList(msg.getPayloadList(),
-    proto.csv.v1.Payload.toObject, includeInstance)
+    proto.csv.v1.Payload.toObject, includeInstance),
+    id: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -328,6 +329,10 @@ proto.csv.v1.Request.deserializeBinaryFromReader = function(msg, reader) {
       reader.readMessage(value,proto.csv.v1.Payload.deserializeBinaryFromReader);
       msg.addPayload(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -370,6 +375,13 @@ proto.csv.v1.Request.serializeBinaryToWriter = function(message, writer) {
       2,
       f,
       proto.csv.v1.Payload.serializeBinaryToWriter
+    );
+  }
+  f = message.getId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
     );
   }
 };
@@ -428,6 +440,24 @@ proto.csv.v1.Request.prototype.addPayload = function(opt_value, opt_index) {
  */
 proto.csv.v1.Request.prototype.clearPayloadList = function() {
   return this.setPayloadList([]);
+};
+
+
+/**
+ * optional string id = 3;
+ * @return {string}
+ */
+proto.csv.v1.Request.prototype.getId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.csv.v1.Request} returns this
+ */
+proto.csv.v1.Request.prototype.setId = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
