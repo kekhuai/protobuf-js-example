@@ -4,8 +4,8 @@
 var grpc = require('@grpc/grpc-js');
 var csv_pb = require('./csv_pb.js');
 var google_protobuf_descriptor_pb = require('google-protobuf/google/protobuf/descriptor_pb.js');
+var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
 var product_pb = require('./product_pb.js');
-var uploaded_file_pb = require('./uploaded_file_pb.js');
 
 function serialize_csv_v1_Request(arg) {
   if (!(arg instanceof csv_pb.Request)) {
@@ -18,15 +18,15 @@ function deserialize_csv_v1_Request(buffer_arg) {
   return csv_pb.Request.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_uploadedfile_v1_UploadedFile(arg) {
-  if (!(arg instanceof uploaded_file_pb.UploadedFile)) {
-    throw new Error('Expected argument of type uploadedfile.v1.UploadedFile');
+function serialize_google_protobuf_Empty(arg) {
+  if (!(arg instanceof google_protobuf_empty_pb.Empty)) {
+    throw new Error('Expected argument of type google.protobuf.Empty');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_uploadedfile_v1_UploadedFile(buffer_arg) {
-  return uploaded_file_pb.UploadedFile.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_google_protobuf_Empty(buffer_arg) {
+  return google_protobuf_empty_pb.Empty.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
@@ -36,11 +36,11 @@ var CsvServiceService = exports.CsvServiceService = {
     requestStream: false,
     responseStream: false,
     requestType: csv_pb.Request,
-    responseType: uploaded_file_pb.UploadedFile,
+    responseType: google_protobuf_empty_pb.Empty,
     requestSerialize: serialize_csv_v1_Request,
     requestDeserialize: deserialize_csv_v1_Request,
-    responseSerialize: serialize_uploadedfile_v1_UploadedFile,
-    responseDeserialize: deserialize_uploadedfile_v1_UploadedFile,
+    responseSerialize: serialize_google_protobuf_Empty,
+    responseDeserialize: deserialize_google_protobuf_Empty,
   },
 };
 

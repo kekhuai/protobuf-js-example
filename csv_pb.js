@@ -16,10 +16,10 @@ var global = Function('return this')();
 
 var google_protobuf_descriptor_pb = require('google-protobuf/google/protobuf/descriptor_pb.js');
 goog.object.extend(proto, google_protobuf_descriptor_pb);
+var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js');
+goog.object.extend(proto, google_protobuf_empty_pb);
 var product_pb = require('./product_pb.js');
 goog.object.extend(proto, product_pb);
-var uploaded_file_pb = require('./uploaded_file_pb.js');
-goog.object.extend(proto, uploaded_file_pb);
 goog.exportSymbol('proto.csv.v1.Payload', null, global);
 goog.exportSymbol('proto.csv.v1.Payload.DataCase', null, global);
 goog.exportSymbol('proto.csv.v1.Request', null, global);
