@@ -247,7 +247,7 @@ proto.csv.v1.Payload.prototype.hasProduct = function() {
  * @private {!Array<number>}
  * @const
  */
-proto.csv.v1.Request.repeatedFields_ = [2];
+proto.csv.v1.Request.repeatedFields_ = [3];
 
 
 
@@ -280,10 +280,10 @@ proto.csv.v1.Request.prototype.toObject = function(opt_includeInstance) {
  */
 proto.csv.v1.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    refId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     payloadList: jspb.Message.toObjectList(msg.getPayloadList(),
-    proto.csv.v1.Payload.toObject, includeInstance),
-    id: jspb.Message.getFieldWithDefault(msg, 3, "")
+    proto.csv.v1.Payload.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -322,16 +322,16 @@ proto.csv.v1.Request.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
+      msg.setRefId(value);
       break;
     case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 3:
       var value = new proto.csv.v1.Payload;
       reader.readMessage(value,proto.csv.v1.Payload.deserializeBinaryFromReader);
       msg.addPayload(value);
-      break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setId(value);
       break;
     default:
       reader.skipField();
@@ -362,36 +362,36 @@ proto.csv.v1.Request.prototype.serializeBinary = function() {
  */
 proto.csv.v1.Request.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getName();
+  f = message.getRefId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getPayloadList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      2,
+      3,
       f,
       proto.csv.v1.Payload.serializeBinaryToWriter
-    );
-  }
-  f = message.getId();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
-      f
     );
   }
 };
 
 
 /**
- * optional string name = 1;
+ * optional string ref_id = 1;
  * @return {string}
  */
-proto.csv.v1.Request.prototype.getName = function() {
+proto.csv.v1.Request.prototype.getRefId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -400,18 +400,36 @@ proto.csv.v1.Request.prototype.getName = function() {
  * @param {string} value
  * @return {!proto.csv.v1.Request} returns this
  */
-proto.csv.v1.Request.prototype.setName = function(value) {
+proto.csv.v1.Request.prototype.setRefId = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * repeated Payload payload = 2;
+ * optional string name = 2;
+ * @return {string}
+ */
+proto.csv.v1.Request.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.csv.v1.Request} returns this
+ */
+proto.csv.v1.Request.prototype.setName = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * repeated Payload payload = 3;
  * @return {!Array<!proto.csv.v1.Payload>}
  */
 proto.csv.v1.Request.prototype.getPayloadList = function() {
   return /** @type{!Array<!proto.csv.v1.Payload>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.csv.v1.Payload, 2));
+    jspb.Message.getRepeatedWrapperField(this, proto.csv.v1.Payload, 3));
 };
 
 
@@ -420,7 +438,7 @@ proto.csv.v1.Request.prototype.getPayloadList = function() {
  * @return {!proto.csv.v1.Request} returns this
 */
 proto.csv.v1.Request.prototype.setPayloadList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
 
@@ -430,7 +448,7 @@ proto.csv.v1.Request.prototype.setPayloadList = function(value) {
  * @return {!proto.csv.v1.Payload}
  */
 proto.csv.v1.Request.prototype.addPayload = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.csv.v1.Payload, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.csv.v1.Payload, opt_index);
 };
 
 
@@ -440,24 +458,6 @@ proto.csv.v1.Request.prototype.addPayload = function(opt_value, opt_index) {
  */
 proto.csv.v1.Request.prototype.clearPayloadList = function() {
   return this.setPayloadList([]);
-};
-
-
-/**
- * optional string id = 3;
- * @return {string}
- */
-proto.csv.v1.Request.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.csv.v1.Request} returns this
- */
-proto.csv.v1.Request.prototype.setId = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
