@@ -138,6 +138,7 @@ proto.uploadedfile.v1.UploadedFile.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     source: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
@@ -185,11 +186,15 @@ proto.uploadedfile.v1.UploadedFile.deserializeBinaryFromReader = function(msg, r
       msg.setSource(value);
       break;
     case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
+    case 4:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setCreatedAt(value);
       break;
-    case 4:
+    case 5:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setUpdatedAt(value);
@@ -237,10 +242,17 @@ proto.uploadedfile.v1.UploadedFile.serializeBinaryToWriter = function(message, w
       f
     );
   }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
   f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
-      3,
+      4,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
@@ -248,7 +260,7 @@ proto.uploadedfile.v1.UploadedFile.serializeBinaryToWriter = function(message, w
   f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
-      4,
+      5,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
@@ -293,12 +305,30 @@ proto.uploadedfile.v1.UploadedFile.prototype.setSource = function(value) {
 
 
 /**
- * optional google.protobuf.Timestamp created_at = 3;
+ * optional string name = 3;
+ * @return {string}
+ */
+proto.uploadedfile.v1.UploadedFile.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.uploadedfile.v1.UploadedFile} returns this
+ */
+proto.uploadedfile.v1.UploadedFile.prototype.setName = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional google.protobuf.Timestamp created_at = 4;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.uploadedfile.v1.UploadedFile.prototype.getCreatedAt = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 3));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 4));
 };
 
 
@@ -307,7 +337,7 @@ proto.uploadedfile.v1.UploadedFile.prototype.getCreatedAt = function() {
  * @return {!proto.uploadedfile.v1.UploadedFile} returns this
 */
 proto.uploadedfile.v1.UploadedFile.prototype.setCreatedAt = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -325,17 +355,17 @@ proto.uploadedfile.v1.UploadedFile.prototype.clearCreatedAt = function() {
  * @return {boolean}
  */
 proto.uploadedfile.v1.UploadedFile.prototype.hasCreatedAt = function() {
-  return jspb.Message.getField(this, 3) != null;
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
 /**
- * optional google.protobuf.Timestamp updated_at = 4;
+ * optional google.protobuf.Timestamp updated_at = 5;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.uploadedfile.v1.UploadedFile.prototype.getUpdatedAt = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 4));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 5));
 };
 
 
@@ -344,7 +374,7 @@ proto.uploadedfile.v1.UploadedFile.prototype.getUpdatedAt = function() {
  * @return {!proto.uploadedfile.v1.UploadedFile} returns this
 */
 proto.uploadedfile.v1.UploadedFile.prototype.setUpdatedAt = function(value) {
-  return jspb.Message.setWrapperField(this, 4, value);
+  return jspb.Message.setWrapperField(this, 5, value);
 };
 
 
@@ -362,7 +392,7 @@ proto.uploadedfile.v1.UploadedFile.prototype.clearUpdatedAt = function() {
  * @return {boolean}
  */
 proto.uploadedfile.v1.UploadedFile.prototype.hasUpdatedAt = function() {
-  return jspb.Message.getField(this, 4) != null;
+  return jspb.Message.getField(this, 5) != null;
 };
 
 
@@ -398,7 +428,8 @@ proto.uploadedfile.v1.CreateRequest.prototype.toObject = function(opt_includeIns
  */
 proto.uploadedfile.v1.CreateRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    source: jspb.Message.getFieldWithDefault(msg, 1, "")
+    source: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -439,6 +470,10 @@ proto.uploadedfile.v1.CreateRequest.deserializeBinaryFromReader = function(msg, 
       var value = /** @type {string} */ (reader.readString());
       msg.setSource(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -475,6 +510,13 @@ proto.uploadedfile.v1.CreateRequest.serializeBinaryToWriter = function(message, 
       f
     );
   }
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -493,6 +535,24 @@ proto.uploadedfile.v1.CreateRequest.prototype.getSource = function() {
  */
 proto.uploadedfile.v1.CreateRequest.prototype.setSource = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string name = 2;
+ * @return {string}
+ */
+proto.uploadedfile.v1.CreateRequest.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.uploadedfile.v1.CreateRequest} returns this
+ */
+proto.uploadedfile.v1.CreateRequest.prototype.setName = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
